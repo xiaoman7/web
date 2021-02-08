@@ -1,0 +1,152 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.nav{
+    background-color: rgb(77, 80, 85);
+    height: 60px;
+}
+.nav a {
+    display: block; 
+    float: right;
+    text-align: center;
+    padding: 1px 15px;
+    text-decoration: none;
+    color: white;
+}
+.body{
+    height: 3000px;
+    background-color: rgb(226, 226, 226);
+}
+.left{
+    background-color:  rgb(226, 226, 226);
+    float: left;
+    width: 1000px;
+    height: 2975px;
+    margin: 25px;
+    margin-top: 0px;
+    
+}
+.in1,.in2,.in3,.in4{
+    margin: 20px;
+}
+.left1,.left2,.left3,.left4,.right{
+    box-shadow:2px 2px rgb(168, 168, 168) ;
+    
+}
+.left1{
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 22px;
+    background-color: white;
+    height: 991px;
+}
+.left2{
+    width: 100%;
+    margin-bottom: 22px;
+    background-color: white;
+    height:980px;
+}
+.left3{
+    width: 100%;
+    margin-bottom: 22px;
+    background-color: white;
+    height:460px;
+}
+.father{
+    width: 850px;
+    height: 380px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px rgb(168, 168, 168) ;
+    margin-left: 30px;
+    justify-content: space-around;
+    
+}
+.father li{
+    list-style: none;
+    flex: 145px;
+    height: 150px;
+    border: 1px solid rgb(168, 168, 168) ;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    
+}
+.father li span{
+    padding: 4px;
+    text-align: center;
+}
+.father li img{
+    width: 120px;
+    height: 110px;
+    margin: 2px auto;
+}
+.left4{
+    width: 100%;
+    margin-bottom: 22px;
+    background-color: white;
+    height:380px;
+}
+.in4 li{
+    margin-left: 40px;
+}
+.right{
+    float: right;
+    width: 465px;
+    height: 650px;
+    margin-top: 22px;
+    background-color: white;
+}
+.register{
+    margin: 22px;
+}
+.register_form {
+    
+    width: 420px;
+    height: 550px;
+    margin: 20px auto;
+    font-size: 14px;
+}
+.register_form ul li{
+    margin-bottom: 15px;
+}
+.label1,.label2,.label3,.label4{
+    display: inline-block;
+    text-align: right;
+    width: 120px;
+    padding-right: 15px;
+}
+.label5{
+    display: inline-block;
+    text-align: right;
+    width: 120px;
+    padding-right: 11px;
+}
+.input1,.input2,.input3{
+    width: 180px;
+    height: 20px;
+    border: 1px solid #ccc;
+
+}
+.geshi,.mima{
+    padding-left: 135px;
+    padding-bottom: 18px;
+    color: rgb(168, 168, 168);
+    font-size: 14px;
+}
+.btn{
+    margin: 10px 60px;
+    width: 350px;
+    font-size: 15px;
+    font-weight: 550;
+    color: white;
+    height: 44px;
+    background-color: #109fe7;
+    border-radius: 8px;
+    border-color: #00a7be;
+}
+.footer{
+    height: 45px;
+    background-color:black;
+}
