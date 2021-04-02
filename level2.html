@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <textarea name="" id="text" cols="80" rows="10"></textarea>
+    <button class="post" id="btn">点击发布</button>
+    <div class="list" id="show">
+        <ul id="">
+        </ul>
+    </div>
+    <script>
+        window.onload = function(){
+            var Text = document.getElementById("text");
+            var Btn = document.getElementById("btn");
+            var Show = document.getElementById("show");
+            var Ul = document.createElement("ul"); //定义一个有序的列表
+            Show.appendChild(Ul); 
+            Btn.onclick = function(){              /* 点击留言以后，在Msg_c中添加列表，在列表中添加内容
+                                                      在每一条留言后面添加一个<span>标签 使用此标签的onclick属性
+                                                     */
+                var TextValue = Text.value;         
+                var Li = document.createElement("li");
+                Li.innerHTML = TextValue ;
+                var arrayLi = Ul.getElementsByTagName("li")   //判断是否是第一个留言
+                if(arrayLi.length>0){
+                    Ul.insertBefore(Li,arrayLi[0]);
+                }else{
+                    Ul.appendChild(Li);
+                }
+                Text.value='';
+                var Span = document.getElementsByTagName("span");
+                for(var i=0; i<Span.length; i++){
+                    Span[i].onclick = function(){
+                      Ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+        /*var concent = document.getElementById('concent');
+        var show = document.getElementById('show');
+        function post() {
+            var li = document.createElement('li');
+            li.innerHTML = concent.value;
+            show.appendChild(li);
+            concent.value = '';
+        }*/
+    </script>    
+</body>
+</html>
