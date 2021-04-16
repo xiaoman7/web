@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    //1、setTimeout()实现
+        function Student(name) {    //创建任务队列把任务都放进队列里面按顺序执行
+            function People(name) {
+                this.task = []     //用于存放的任务队列
+                let fn = ()=>{
+                     console.log("Hi! This is " + name +"!");
+                     this.next();
+                }
+                this.task.push(fn);
+                setTimeout(()=>{
+                    this.next();
+                },0);          //在下一个事件循环启动任务
+                return this;
+            }
+
+            People.prototype.sleep = function(time) {
+                let that = this;
+                let fn = () =>{
+                    setTimeout(()=>{
+                        console.log("Wake up after " + time);
+                        that.next();
+                    },time*1000)
+                }
+                this.task.push(fn);
+                return this;     //实现链式调用
+            }
+
+            People.prototype.sleepFirst = function(time) {
+                let that = this;
+                let fn = () =>{
+                    setTimeout(()=>{
+                        console.log("Wake up after " + time);
+                        that.next();
+                    },time*1000)
+                }
+                this.task.unshift(fn);
+                return this;
+            }
+            People.prototype.study = function(course) {
+                let that = this;
+                let fn = () =>{
+                    console.log("Study " + course + "~");
+                    that.next();
+                }
+                this.task.push(fn);
+                return this;    //实现链式调用
+            }
+            People.prototype.next = function(course){  //事件调度函数
+                let fn = this.task.shift();
+                fn&&fn();
+            }
+            return new People(name);
+        }
+Student('fxy');
+Student('fxy').sleep(3).study('javascript');
+Student('fxy').study('javascript').study('Vue');
+Student('fxy').sleepFirst(5).study('Ajax');
+
+//链式调用以及流程控制
+
+
+    //2、Promise实现
+    function Student(name){    //创建任务队列把任务都放进队列里面按顺序执行
+        function people(name) {
+        this.orderPromise = this.newPromise(); //定义顺序promise对象
+        this.insertPromise = this.newPromise(); //定义插入promise对象
+        this.order(function(resolve) {
+            console.log(name);
+            resolve();
+            })
+        }
+        people.prototype = {  //实例化promise对象工厂
+            newPromise: function() {
+            return new Promise(function(resolve, reject) {
+                resolve();
+            })
+            },
+        order: function(fn) {
+            var self = this;
+            this.orderPromise = this.orderPromise.then(function() {
+                return new Promise(function(resolve, reject) {
+                //如果有insertPromise，阻塞orderPromise.
+                    self.fir ? self.insertPromise.then(function() {
+                        fn(resolve)
+                    }) : fn(resolve);  //？：
+                })
+            })
+        },
+        insert: function(fn) {
+            var self = this;
+            this.fir = true;
+            this.insertPromise = this.insertPromise.then(function() {
+                return new Promise(function(resolve, reject) {
+                    fn(resolve) 
+                    self.fir = false;
+                })
+            })
+        },
+        firstTime: function(time) {
+            this.insert(function(resolve) {
+                setTimeout(function() {
+                    console.log('wait ' + time + ' s, other logic');
+                    resolve();
+                },
+                time * 1000)
+            }) 
+　　　　    return this;
+        },
+        eat: function(something) {
+            this.order(function(resolve) {
+                console.log(something + '~~') 
+                resolve();
+            })
+　　　　    return this;
+        },
+        sleep: function(time) {
+            this.order(function(resolve) {
+                setTimeout(function() {
+                    console.log('sleep ' + time + ' s');
+                    resolve()
+                },
+                time * 1000);
+            })
+            return this;
+        }
+        }
+}
+//接口封装。
+function Student(name) {
+    return new people(name);
+}
+Student('fxy');
+Student('fxy').sleep(3).study('javascript');
+Student('fxy').study('javascript').study('Vue');
+Student('fxy').sleepFirst(5).study('Ajax');
+</script>
+</head>
+<body>
+
+</body>
+</html>
