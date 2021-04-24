@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌单</title>
+    <link rel="stylesheet" href="style.css" type="text/CSS" charset="UTF-8">
+</head>
+<body>
+    <ul >
+        <li ></li>
+        <li ></li>
+        <li ></li>
+        <li ></li>
+        <li ></li>
+        <li ></li>
+        <li ></li>
+        <li ></li>
+    </ul>
+
+
+    <input class="search" type="text" value="提示信息">
+    <button>点击搜索</button>
+    <script>
+        //var ul = document.querySelector("ul")
+        var li = document.querySelectorAll("li")
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET','http://musicapi.leanapp.cn/personalized?limit=8',true);
+        xhr.send()
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState === 4){
+                if((xhr.status >= 200 && xhr.status < 300)||xhr.status == 304){
+                    const res = JSON.parse(xhr.response)
+                    Dealing(res.result)
+                   }
+                }
+            }
+        function Dealing(res){
+            for(var i=0;i<li.length;i++){
+                //console.log(res[i])
+                let div_pre = document.createElement("div")
+                li[i].appendChild(div_pre)
+                div_pre.setAttribute("class","pre")
+
+                let a = document.createElement("a")
+                div_pre.appendChild(a)
+                let img = document.createElement("img")
+                a.appendChild(img)
+
+                let p=document.createElement("p")
+                p.setAttribute("class","text")
+                li[i].appendChild(p)
+
+                let a_rev = document.createElement("a")
+                p.appendChild(a_rev)
+                img.src = res[i].picUrl;
+                a_rev.innerHTML = a.title = res[i].name;
+                a_rev.href = a.href = "https://music.163.com/#/playlist?id="+res[i].id
+            }
+        }
+        /*const btn = document.getElementsByTagName('button')[0]
+        btn.onclick = function(){
+            //console.log('test')
+            const x = new XMLHttpRequest()
+            x.open('GET','http://musicapi.leanapp.cn/search')
+            x.send()
+            x.onreadystatechange = () =>{
+                if(x.readyState === 4){
+                if((x.status >= 200 && x.status < 300)||x.status == 304){
+                    const finding = JSON.parse(x.response)
+                    
+                    
+                   }
+                }
+            }
+        }*/
+    </script>
+</body>
+</html>
