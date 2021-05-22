@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 minimum-scale=1.0 user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="echarts.js"></script>
+    <title>腾讯天气</title>
+</head>
+<body>
+    <div class="container">
+    
+        <div id="top" > 
+            <div id="nav">
+                <a id="link-back">
+                    <img class="icon-top" src="picture/back.png">
+                </a>
+                <div id="banner">
+                    <img class="icon-top0"src="picture/location.png" >
+                    <span id="location">重庆</span>
+                </div>
+                <a id="link-share" href="">
+                    <img class="icon-top"src="picture/share0.png" >
+                </a>
+                <div id="zhishu">
+                    <p id="polu" style="font-size: 14px; color: #ffffff;text-align: center;">85</p>
+                    <p id="polu_level" style="font-size: 14px; color: #ffffff;text-align: center;line-height: 0.1rem;">良好</p>
+                </div>
+                <p id="now_tem" style="font-size: 3rem; color: #ffffff;padding-top: 3rem;padding-bottom: 0;">22°</p>
+                <p id="now_wea" style="font-size: 0.8rem; color:#ffffff;margin:0;padding-top: 0;">阴</p>
+                <div id="show">
+                    <p class="txt" style="color: #ffffff;font-size: 0.5rem;">南风</p>
+                    <p class="show txt" style="color: #ffffff;font-size: 0.5rem;">湿度</p>
+                    <p class="text" style="color: #ffffff;font-size: 0.5rem;">天暗下来，你就是阳光~</p>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+
+        <div id="second">
+
+            <div class="item" style="border-right: 1px solid #f5f5f5;">
+                <div id="line1">
+                    <span>今天</span>
+                    <span id="temp_1"></span>
+                </div>
+                <div id="line2">
+                    <span id="wea_name1"></span>
+                    <img id="tod_img" src="weather_icon/小雨.png">
+                </div>
+            </div>
+
+            <div class="item">
+                <div id="line_1">
+                    <span>明天</span>
+                    <span id="temp_2"></span>
+                </div>
+                <div id="line_2">
+                    <span id="wea_name2"></span>
+                    <img id="tom_img" src="weather_icon/阴天.png">
+                </div>
+            </div>
+        </div>
+
+        <div id="hours_weather" >
+            <div id="hours-scroll">
+                <ul id="hours" style="list-style: none;">
+                    <li class="per_hour1" >
+                    <p class="time">19:27</p>
+                    <img class="icon1" src="weather_icon/小雨.png">
+                    <p class="time_name">22°</p>
+                    </li>
+                    <li class="per_hour" >
+                    <p class="time">20:27</p>
+                    <img class="icon1" src="weather_icon/小雨.png">
+                    <p class="time_name">22°</p>
+                    </li>
+                    <li class="per_hour" >
+                        <p class="time">21:27</p>
+                        <img class="icon1" src="weather_icon/小雨.png">
+                        <p class="time_name">21°</p>
+                    </li>
+                    <li class="per_hour" >
+                    <p class="time">22:27</p>
+                    <img class="icon1" src="weather_icon/阴天.png">
+                    <p class="time_name">21°</p>
+                    </li>
+                    <li class="per_hour" >
+                        <p class="time">23:27</p>
+                        <img class="icon1" src="weather_icon/阴天.png">
+                        <p class="time_name">19°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">00:27</p>
+                            <img class="icon1" src="weather_icon/阴天.png">
+                            <p class="time_name">19°</p>
+                    </li>
+                    <li class="per_hour" >
+                    <p class="time">01:27</p>
+                    <img class="icon1" src="weather_icon/阴天.png">
+                    <p class="time_name">18°</p>
+                    </li>
+                    <li class="per_hour" >
+                        <p class="time">02:27</p>
+                        <img class="icon1" src="weather_icon/阴天.png">
+                        <p class="time_name">18°</p>
+                    </li>
+                    <li class="per_hour1" >
+                        <p class="time">03:27</p>
+                        <img class="icon1" src="weather_icon/阴天.png">
+                        <p class="time_name">18°</p>
+                    </li>
+                    <li class="per_hour" >
+                        <p class="time">04:27</p>
+                        <img class="icon1" src="weather_icon/阴天.png">
+                        <p class="time_name">17°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">05:27</p>
+                            <img class="icon1" src="weather_icon/阴天.png">
+                            <p class="time_name">20°</p>
+                    </li>
+                    <li class="per_hour" >
+                        <p class="time">06:27</p>
+                        <img class="icon1" src="weather_icon/阴天.png">
+                        <p class="time_name">20°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">07:27</p>
+                            <img class="icon1" src="weather_icon/阴天.png">
+                            <p class="time_name">20°</p>
+                    </li>
+                    <li class="per_hour" >
+                                <p class="time">08:27</p>
+                                <img class="icon1" src="weather_icon/阴天.png">
+                                <p class="time_name">21°</p>
+                    </li>
+                    <li class="per_hour" >
+                        <p class="time">09:27</p>
+                        <img class="icon1" src="weather_icon/阴天.png">
+                        <p class="time_name">22°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">10:27</p>
+                            <img class="icon1" src="weather_icon/阴天.png">
+                            <p class="time_name">23°</p>
+                    </li>
+                    <li class="per_hour1" >
+                            <p class="time">11:27</p>
+                            <img class="icon1" src="weather_icon/多云.png">
+                            <p class="time_name">25°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">12:27</p>
+                            <img class="icon1" src="weather_icon/多云.png">
+                            <p class="time_name">26°</p>
+                    </li>
+                    <li class="per_hour" >
+                                <p class="time">13:27</p>
+                                <img class="icon1" src="weather_icon/多云.png">
+                                <p class="time_name">25°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">14:27</p>
+                            <img class="icon1" src="weather_icon/多云.png">
+                            <p class="time_name">26°</p>
+                    </li>
+                    <li class="per_hour" >
+                                <p class="time">15:27</p>
+                                <img class="icon1" src="weather_icon/多云.png">
+                                <p class="time_name">26°</p>
+                    </li>
+                    <li class="per_hour" >
+                                    <p class="time">16:27</p>
+                                    <img class="icon1" src="weather_icon/多云.png">
+                                    <p class="time_name">25°</p>
+                    </li>
+                    <li class="per_hour" >
+                            <p class="time">17:27</p>
+                            <img class="icon1" src="weather_icon/多云.png">
+                            <p class="time_name">24°</p>
+                    </li>
+                    <li class="per_hour" >
+                                <p class="time">18:27</p>
+                                <img class="icon1" src="weather_icon/多云.png">
+                                <p class="time_name">日落</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="days_weather">
+            <div id="days-scroll" style="width:15rem">
+                <ol style="list-style: none;">
+                    <li class="ls_day" >
+                        <p class="day0">昨天</p>
+                        <p class="date0">05-21</p>
+                        <div class="day_name0">
+                            <p class="wea0">阴</p>
+                            <img class="icon" src=" ">
+                        </div>
+                        <div class="charts0">  
+                        </div>
+                        <img class="icon" src=" ">
+                        <p class="wea0" style="line-height: 0.8;font-size: 13px;">阴</p>
+                        <p class="wind0" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level0"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">今天</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src=" ">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/阴天.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">明天</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src=" ">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/小雨.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">后天</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src=" ">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/阴天.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">周二</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src="weather_icon/阴天.png">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/阴天.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">周三</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src="weather_icon/阴天.png">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/阴天.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">周四</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src="weather_icon/阴天.png">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/阴天.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                    <li class="ls_day" >
+                        <p class="day">周五</p>
+                        <p class="date"></p>
+                        <div class="day_name">
+                            <p class="wea">阴</p>
+                            <img class="icon" src="weather_icon/阴天.png">
+                        </div>
+                        <div class="charts">
+                            
+                        </div>
+                        <img class="icon" src="weather_icon/阴天.png">
+                        <p class="wea" style="line-height: 0.8;font-size: 13px;">阴</p>
+
+                        <p class="wind" style="font-size: 13px; line-height: 1;">南风</p>
+                        <p class="wind_level"style="font-size: 13px; line-height: 0.2;">3级</p>
+                    </li>
+                </ol>
+                <div id="e_charts" style="width: 22rem;height: 20rem;padding-top: 2.5rem;margin-left: 0;">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="living">
+            <div id="living-scroll">
+                <div class="react">
+                    <div >
+                        <ul class="ls-living" style="width: 15rem;height: (100rem / 50)">
+                            <li class="live">
+                                <img class="icon-day" src="picture/车.png">
+                                <p class="content">不限行</p>
+                                <p class="title">尾号限行</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/衣服.png">
+                                <p class="content">舒适</p>
+                                <p class="title">穿衣</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/伞.png">
+                                <p class="content">带伞</p>
+                                <p class="title">雨伞</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/药.png">
+                                <p class="content">较易发</p>
+                                <p class="title">感冒</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/运动.png">
+                                <p class="content">较不宜</p>
+                                <p class="title">运动</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/钓鱼.png">
+                                <p class="content">不宜</p>
+                                <p class="title">钓鱼</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/旅游.png">
+                                <p class="content">适宜</p>
+                                <p class="title">旅游</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/太阳.png">
+                                <p class="content">弱</p>
+                                <p class="title">防晒</p>
+                            </li> 
+                        </ul>
+                       <!--<ul class="ls-living" style="width: 15rem;height: (100rem / 50)">
+                            <li class="live">
+                                <img class="icon-day" src="picture/车.png">
+                                <p class="content">不限行</p>
+                                <p class="title">尾号限行</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/衣服.png">
+                                <p class="content">舒适</p>
+                                <p class="title">穿衣</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/伞.png">
+                                <p class="content">带伞</p>
+                                <p class="title">雨伞</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/药.png">
+                                <p class="content">较易发</p>
+                                <p class="title">感冒</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/运动.png">
+                                <p class="content">较不宜</p>
+                                <p class="title">运动</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/钓鱼.png">
+                                <p class="content">不宜</p>
+                                <p class="title">钓鱼</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/旅游.png">
+                                <p class="content">适宜</p>
+                                <p class="title">旅游</p>
+                            </li>
+                            <li class="live">
+                                <img class="icon-day" src="picture/太阳.png">
+                                <p class="content">弱</p>
+                                <p class="title">防晒</p>
+                            </li>    
+                        </ul>    --> 
+                            
+                        
+
+                    </div>
+                    <div class="living_tab">
+                        <span class="now"></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div id="link">
+                <a id="link-btn" href="http://m.weather.com.cn">数据来源于中国天气网</a>              
+                <div id="copyright">
+                    Copyright © 1998 - 2021 Tencent. All Rights Reserved 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script type="text/javascript" >
+        var date = document.getElementsByClassName("date");
+        var wea = document.getElementsByClassName("wea");
+        var icon = document.getElementsByClassName("icon");
+        var wind = document.getElementsByClassName("wind");
+        var wind_level = document.getElementsByClassName("wind_level");
+        var icon = document.getElementsByClassName("icon");
+        var temp_1 = document.getElementById("temp_1");
+        var temp_2 = document.getElementById("temp_2");
+        var wea_name1 = document.getElementById("wea_name1");
+        var wea_name2 = document.getElementById("wea_name2");
+        var time = document.getElementsByClassName("time");
+        var time_name = document.getElementsByClassName("time_name");
+        var now_tem = document.getElementById("now_tem");
+        var now_wea = document.getElementById("now_wea");
+        var txt = document.getElementsByClassName("txt");
+        var show_txt = document.getElementsByClassName("show_txt");
+        var btn0 = document.getElementById("banner");
+        btn0.onclick = function () {
+            alert('搜索');
+        }
+        var btn1 = document.getElementById("zhishu");
+        btn1.onclick = function () {
+            alert('空气质量指数 52 良');
+        }
+
+        function ajax(url, fn) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4){
+                    if((xhr.status >= 200 && xhr.status < 300)||xhr.status == 304){
+			            const res = JSON.parse(xhr.responseText)
+			            console.log(res);
+                        fn(res);//成功
+                    } else {  
+                        console.log(xhr.status);
+                    }
+                }
+            }
+        }
+        function func1(a) {
+            for(var i = 0;i<7;i++){
+                date[i].innerHTML = a.data[i].date.slice(5,10);
+                wea[i].innerHTML = a.data[i].wea;
+                wind[i].innerHTML = a.data[i].win;
+                wind_level[i].innerHTML = a.data[i].win_speed;
+                
+            }
+        }
+        function func2(b){
+            temp_1.innerHTML = b.data[0].tem_day+'/'+b.data[0].tem_night+'°';
+            temp_2.innerHTML = b.data[1].tem_day+'/'+b.data[1].tem_night+'°';
+            wea_name1.innerHTML = b.data[0].wea;
+            wea_name2.innerHTML = b.data[1].wea; 
+            for(var i = 0;i<7;i++){
+                icon[i].src = weather(b.data[i].wea_img);
+            }
+           
+        }
+        function weather(x){
+                    if (x == 'qing') {
+                        x = "weather_icon/晴天.png"
+                    }
+                    else if (x == 'yu') {
+                        x = "weather_icon/大雨.png"
+                    }
+                    else if (x == 'yun') {
+                        x = "weather_icon/多云.png"
+                    }
+                    else if (x == 'yin') {
+                        x = "weather_icon/阴天.png"
+                    }
+                    else if (x == 'lei') {
+                        x = "weather_icon/雷阵雨.png"
+                    }
+                    else if (x == 'bingbao') {
+                        x = "weather_icon/雷阵雨及伴有冰雹.png"
+                    }
+                    else if (x == 'shachen') {
+                        x = "weather_icon/霾.png"
+                    }
+                    else if (x == 'wu') {
+                        x = "weather_icon/雾.png"
+                    }
+                    return x;
+                }
+        function func3(c){
+
+            for(var i = 1 ;i<24;i++){
+                console.log();
+                //time[i].innerHTML = c.hourly[i].fxTime.slice(5,10);
+                //time_name[i].innerHTML = c.hourly.temp+'°';
+            }
+        }
+        function func4(d){
+        }
+        function func5(e){
+            now_tem.innerHTML = e.tem+'°';
+            now_wea.innerHTML = e.wea;
+            txt.innerHTML = e.win;
+    
+        }
+        ajax("https://www.tianqiapi.com/free/week?appid=87861633&appsecret=SaH2WcED",func1);
+        ajax("https://www.tianqiapi.com/free/week?appid=87861633&appsecret=SaH2WcED",func2);
+        //无法调用
+        //ajax("https://devapi.qweather.com/v7/weather/24h?location=101010100&key=0417b430a4c344cd81da3b3b8c9e36e1",func3);
+        //ajax("https://devapi.qweather.com/v7/indices/1d?location=101010100&key=0417b430a4c344cd81da3b3b8c9e36e1",func4);
+        ajax("https://www.tianqiapi.com/free/day?appid=87861633&appsecret=SaH2WcED",func5);
+        var myChart = echarts.init(document.getElementById("e_charts"));
+        var option = {
+            xAxis: {
+                type:'category',
+                show:false
+            },
+            yAxis: {
+                splitLine:{show:false},
+                show:false
+            },
+            series: [{
+                name: '最高温度',
+                data: [23, 25, 23, 24, 23, 25, 29, 28],
+                type: 'line',
+                itemStyle : { 
+                    normal: {
+                        label : {
+                            show: true,
+                            formatter: '{c}°'
+                        }
+                    }
+                },
+                smooth: true
+            },
+                {
+                    name: '最低温度',
+                    data: [22, 21, 19, 19, 20, 20, 20, 21],
+                    type: 'line',
+                    itemStyle : { 
+                        normal: {
+                            label : {
+                                show: true,
+                                formatter: '{c}°'
+                            }
+                        }
+                    },
+                        smooth: true
+                }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    
+    
+    
+    
+    </script>
+</body>
+</html>
